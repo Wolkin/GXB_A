@@ -1,14 +1,11 @@
-package com.gxb.api.block;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+package com.gxb.api.register.global;
 
 /**
- * 获取区块头信息
+ * 注册未确认的交易的回调
  * @author Wolkin
  *
  */
-public class GetBlockHeader extends BlockAPI{
+public class SetPendingTransactionCallback extends GlobalAPI {
 
 	@Override
 	public void doParameter(String paraStr) {
@@ -18,10 +15,11 @@ public class GetBlockHeader extends BlockAPI{
 		}else {
 			temStr = paraStr;
 		}
+		
 		this.jsonStr = "{" + 
 				           "\"jsonrpc\": \"2.0\", " + 
 				           "\"method\": \"call\", " + 
-				           "\"params\": [0, \"get_block\", [\"" + temStr + "\"]], " + 
+				           "\"params\": [0, \"set_pending_transaction_callback\", [[\"" + temStr + "\"]]], " + 
 				           "\"id\":1" + 
 				       "}";
 	}

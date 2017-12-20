@@ -1,14 +1,6 @@
-package com.gxb.api.block;
+package com.gxb.api.register.global;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-/**
- * 获取区块头信息
- * @author Wolkin
- *
- */
-public class GetBlockHeader extends BlockAPI{
+public class SetSubscribeCallback extends GlobalAPI {
 
 	@Override
 	public void doParameter(String paraStr) {
@@ -18,10 +10,11 @@ public class GetBlockHeader extends BlockAPI{
 		}else {
 			temStr = paraStr;
 		}
+		
 		this.jsonStr = "{" + 
 				           "\"jsonrpc\": \"2.0\", " + 
 				           "\"method\": \"call\", " + 
-				           "\"params\": [0, \"get_block\", [\"" + temStr + "\"]], " + 
+				           "\"params\": [0, \"set_subscribe_callback\", [[\"" + temStr + "\"]]], " + 
 				           "\"id\":1" + 
 				       "}";
 	}

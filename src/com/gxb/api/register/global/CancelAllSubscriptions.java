@@ -1,21 +1,18 @@
-package com.gxb.api.block;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+package com.gxb.api.register.global;
 
 /**
- * 获取全局属性
+ * 停止所有订阅（回调）
  * @author Wolkin
  *
  */
-public class GetGlobalProperties extends BlockAPI {
+public class CancelAllSubscriptions extends GlobalAPI {
 
 	@Override
 	public void doParameter(String paraStr) {
 		this.jsonStr = "{" + 
 				           "\"jsonrpc\": \"2.0\", " + 
 				           "\"method\": \"call\", " + 
-				           "\"params\": [0, \"get_global_properties\", []], " + 
+				           "\"params\": [0, \"cancel_all_subscriptions\", [[]]], " + 
 				           "\"id\":1" + 
 				       "}";
 	}
