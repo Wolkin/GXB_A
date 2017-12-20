@@ -10,8 +10,6 @@ import org.json.JSONObject;
  */
 public class GetAccount extends WalletAPI {
 
-	private String jsonStr = "";
-	
 	/**
 	 * 缺省构造函数
 	 */

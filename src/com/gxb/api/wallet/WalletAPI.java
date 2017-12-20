@@ -11,6 +11,7 @@ import com.gxb.api.APIObj;
  */
 
 public abstract class WalletAPI implements APIObj{
+	protected String jsonStr = "";
 	
 	@Override
 	public abstract JSONObject jsonObj();

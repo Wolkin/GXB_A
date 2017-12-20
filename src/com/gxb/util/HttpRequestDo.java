@@ -72,4 +72,20 @@ public class HttpRequestDo {
 		}
 		return code;
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public HttpURLConnection getConnection() {
+		return connection;
+	}
+
+	/**
+	 * 
+	 * @param connection
+	 */
+	public void setConnection(HttpURLConnection connection) {
+		this.connection = connection;
+	}
 }
