@@ -10,7 +10,7 @@ import org.json.JSONObject;
  */
 public class GetAccount extends WalletAPI {
 
-	private JSONObject jsonObject = null;
+	private String jsonStr = "";
 	
 	/**
 	 * 缺省构造函数
@@ -24,32 +24,32 @@ public class GetAccount extends WalletAPI {
 	 */
 	@Override
 	public void doParameter(String paraStr) {
-		String objectStr = "{" + 
-				"\"jsonrpc\": \"2.0\", " + 
-				"\"method\": \"call\", " + 
-				"\"params\": [0, \"get_accounts\", [[\"" + paraStr + "\"]]], " + 
-				"\"id\":1" + 
-			"}";
-		try {
-			this.jsonObject = new JSONObject(objectStr);
-			System.out.println(objectStr);
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		//多参数以逗号分隔的识别
+		String temStr = "";
+		if(paraStr.contains(",")) {
+			temStr = paraStr.replace(",", "\",\"");
+		}else {
+			temStr = paraStr;
 		}
+		
+		this.jsonStr = "{" + 
+							"\"jsonrpc\": \"2.0\", " + 
+							"\"method\": \"call\", " + 
+							"\"params\": [0, \"get_accounts\", [[\"" + temStr + "\"]]], " + 
+							"\"id\":1" + 
+						"}";
 	}
 	
 	@Override
 	public JSONObject jsonObj() {
-		
-		return this.jsonObject;
-	}
-
-	public JSONObject getAccount_name_or_id() {
-		return this.jsonObject;
-	}
-
-	public void setAccount_name_or_id(JSONObject jsonObject) {
-		this.jsonObject = jsonObject;
+		JSONObject jsonObj = null;
+		try {
+			jsonObj = new JSONObject(this.jsonStr);
+			System.out.println(jsonObj.toString());
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return jsonObj;
 	}
 }

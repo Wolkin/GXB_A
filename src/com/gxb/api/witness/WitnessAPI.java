@@ -1,5 +1,7 @@
 package com.gxb.api.witness;
 
+import org.json.JSONObject;
+
 import com.gxb.api.APIObj;
 
 /**
