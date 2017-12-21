@@ -1,17 +1,17 @@
-package com.gxb.api.register;
+package com.gxb.api.register.global;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.gxb.api.APIObj;
 
 /**
- * 定义History类，注册获取公信链History api编号
+ * 定义全局接口抽象类 实现jsonObj()方法
  * @author Wolkin
  *
  */
-public class History  implements APIObj{
-	private String jsonStr = "";
+
+public abstract class GlobalAPI implements APIObj {
+	protected String jsonStr = "";
 	
 	@Override
 	public JSONObject jsonObj() {
@@ -27,13 +27,6 @@ public class History  implements APIObj{
 	}
 
 	@Override
-	public void doParameter(String paraStr) {
-		// TODO Auto-generated method stub
-		this.jsonStr = "{" + 
-						   "\"method\": \"call\", " + 
-						   "\"params\": [1, \"history\", []], " + 
-						   "\"id\":3" + 
-					   "}";
-	}
+	public abstract void doParameter(String paraStr);
 
 }
