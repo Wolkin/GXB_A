@@ -1,8 +1,5 @@
 package com.gxb.api.block;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 /**
  * ªÒ»°¡¥ Ù–‘
  * @author Wolkin
