@@ -5,7 +5,7 @@ package com.gxb.api.wallet;
  * @author Wolkin
  *
  */
-public class LookupAccountNames extends WalletAPI {
+public class GetAccountByName extends WalletAPI {
 
 	@Override
 	public void doParameter(String paraStr) {
@@ -15,12 +15,13 @@ public class LookupAccountNames extends WalletAPI {
 		}else {
 			temStr = paraStr;
 		}
+		
 		this.jsonStr = "{" + 
-				           "\"jsonrpc\": \"2.0\", " + 
-				           "\"method\": \"call\", " + 
-				           "\"params\": [0, \"lookup_account_names\", [[\"" + temStr + "\"]]], " + 
-				           "\"id\":1" + 
-				       "}";
+							"\"jsonrpc\": \"2.0\", " + 
+							"\"method\": \"call\", " + 
+							"\"params\": [0, \"get_account_by_name\", [\"" + temStr + "\"]], " + 
+							"\"id\":1" + 
+						"}";
 	}
 
 }

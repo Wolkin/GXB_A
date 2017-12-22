@@ -1,16 +1,14 @@
-package com.gxb.api.wallet;
+package com.gxb.api.witness;
 
 /**
- * 获取资产账户信息
+ * 通过开始和结束时间获取被投诉的数据源，并返回前limit个
  * @author Wolkin
  *
  */
-public class GetAccountBalances extends WalletAPI {
+public class ListDataTransactionComplainDatasources extends WitnessAPI {
 
 	@Override
 	public void doParameter(String paraStr) {
-		// TODO Auto-generated method stub
-		//多参数以逗号分隔的识别
 		String temStr = "";
 		if(paraStr.contains(",")) {
 			temStr = paraStr.replace(",", "\",\"");
@@ -21,7 +19,7 @@ public class GetAccountBalances extends WalletAPI {
 		this.jsonStr = "{" + 
 				           "\"jsonrpc\": \"2.0\", " + 
 				           "\"method\": \"call\", " + 
-				           "\"params\": [0, \"get_account_balances\", [\"" + temStr + "\"]], " + 
+				           "\"params\": [0, \"list_data_transaction_complain_datasources\", [\"" + temStr + "\"]], " + 
 				           "\"id\":1" + 
 				       "}";
 	}
