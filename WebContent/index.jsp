@@ -90,7 +90,7 @@
 			
 			<div class="uk-panel uk-panel-box uk-panel-box-secondary">
                 <div class="uk-panel-badge uk-badge uk-badge-danger">Top</div>
-                <h3 class="uk-panel-title">竞猜说明</h3>
+                <h3 class="uk-panel-title"><strong>竞猜说明</strong></h3>
                 <p>
 	    		<h4>本期竞猜公信宝区块高度<font color="red">8888888</font>区块哈希码从右起第<font color="red">8</font>位值<font color="blue">（0-9,a-z）。</font></h4>
 				<p>
@@ -103,9 +103,10 @@
         <div class="uk-container uk-container-center">
         	<div class="uk-panel uk-panel-box uk-panel-box-secondary">
                 <div class="uk-panel-badge uk-badge uk-badge-danger">Hot</div>
-                <h3 class="uk-panel-title">竞猜区</h3>
+                <h3 class="uk-panel-title"><strong>参与竞猜</strong></h3>
                 <form class="uk-form uk-margin">
-	    		<input type="text" placeholder="竞猜值" class="uk-margin-small-top">
+                	<input type="text" placeholder="竞猜账户" class="uk-margin-small-top">
+	    			<input type="text" placeholder="竞猜值" class="uk-margin-small-top">
                     <select class="uk-margin-small-top">
                         <option>1 GXS</option>
                         <option>2 GXS</option>
@@ -118,7 +119,11 @@
                		<a class="uk-button uk-button-danger" href="https://wallet.gxb.io/#/transfer/?to=gxb-wm">投注转账</a>
 					 -->
 				</form>
+				<h4><font color="red">1.填写的竞猜账户要与转账账户一致；<br>2.转账时请备注上竞猜值；<br>3.转账后投注状态并非实时生效，请稍等一段时间再来刷新。</font></h4>
             </div>
+		</div>
+		<div class="uk-container uk-container-center">
+			<p class="uk-notify-message">竞猜结果登记成功，请尽快完成转账并在转账时备注上您的竞猜值...</p>
 		</div>
 		<div style="display: none;" class="uk-container uk-container-center">
 			<div class="uk-alert" data-uk-alert="">
@@ -130,12 +135,12 @@
         <div class="uk-container uk-container-center">
         	<div class="uk-panel uk-panel-box uk-panel-box-secondary">
                 <div class="uk-panel-badge uk-badge">New</div>
-                <h3 class="uk-panel-title">竞猜记录</h3>
+                <h3 class="uk-panel-title"><strong>竞猜记录</strong></h3>
                 <p>
 	    		<table class="uk-table uk-table-hover uk-table-condensed">
 	                <thead>
 	                    <tr>
-	                        <th>竞猜用户</th>
+	                        <th>竞猜账户</th>
 	                        <th>下注数目</th>
 	                        <th>竞猜值</th>
 	                        <th>竞猜日期</th>
