@@ -94,12 +94,27 @@
 			alert("请输入竞猜值");
 			return;
 		}
-		var url = "https://wallet.gxb.io/#/transfer/?from="+guessWallet+"&to=gxb-wm&amount="+gxsNum+"&memo="+gxsNum;
-		if (confirm("您的竞猜信息： \n 竞猜钱包账户["+guessWallet+"]、竞猜数值["+guessValue+"]、投注金额["+gxsNum+" gxs]\n 确认投注将跳转到转账页面")) {
+		var url = "https://wallet.gxb.io/#/transfer/?from="+trim(guessWallet)+"&to=gxb-wm&amount="+gxsNum+"&memo="+gxsNum;
+		if (confirm("您的竞猜信息： \n 竞猜钱包账户["+trim(guessWallet)+"]、竞猜数值["+guessValue+"]、投注金额["+gxsNum+" gxs]\n 确认投注将跳转到转账页面")) {
 			window.open(url);
 		}
 	}
 
+	//去左空格;
+	function ltrim(s)
+	{
+	    return s.replace(/(^\s*)/g, "");
+	}
+	//去右空格;
+	function rtrim(s)
+	{
+	    return s.replace(/(\s*$)/g, "");
+	}
+	//去左右空格;
+	function trim(s)
+	{
+	    return s.replace(/(^\s*)|(\s*$)/g, "");
+	}
 </script>
     </head>
     <body>
