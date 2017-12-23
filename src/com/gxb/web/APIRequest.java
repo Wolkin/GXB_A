@@ -12,6 +12,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.util.Properties;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.gxb.api.APIObj;
@@ -25,13 +26,12 @@ import com.gxb.util.HttpRequestDo;
 
 public class APIRequest {
 	public static final String ADD_URL = "https://node1.gxb.io/";
-	public static final String propertiesFile = "./WebContent/WEB-INF/etc/gxbapi.properties";
+	public static String propertiesFile = "/etc/gxbapi.properties";
 	public static HttpURLConnection connection = null;
 	public static Properties apiProperties = null;
 	APIObj apiObj = null;
 	
 	public APIRequest() {
-		
 		try {
 			File file = new File(propertiesFile);
 			InputStream inputStream = new FileInputStream(file);
@@ -49,7 +49,30 @@ public class APIRequest {
 			e.printStackTrace();
 		}
 	}
-	
+
+	/**
+	 * servlet调用需传入WEN-INF的路径
+	 * @param webPath
+	 */
+	public APIRequest(String webPath) {
+		try {
+			this.propertiesFile = webPath + propertiesFile;
+			File file = new File(propertiesFile);
+			InputStream inputStream = new FileInputStream(file);
+			apiProperties = new Properties();
+			apiProperties.load(inputStream);
+			
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * 
 	 * @param apiType
@@ -118,5 +141,15 @@ public class APIRequest {
 		}
 		
 		return returnStr;
+	}
+
+	public JSONObject GXBAPIJSONRequest(String apiType, String parameter) {
+		try {
+			return new JSONObject(this.GXBAPIRequest(apiType, parameter));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

@@ -1,4 +1,4 @@
-package com.gxb.api.baas;
+package com.gxb.api.history;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -6,13 +6,12 @@ import org.json.JSONObject;
 import com.gxb.api.APIObj;
 
 /**
- * 统计查询信息接口
+ * 定义历史数据接口API
  * @author Wolkin
  *
  */
-
-public abstract class BaasAPI implements APIObj{
-	protected String jsonStr = "";
+public abstract class HistoryAPI implements APIObj {
+protected String jsonStr = "";
 	
 	/**
 	 * 打包接口反馈信息

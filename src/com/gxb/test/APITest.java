@@ -6,6 +6,7 @@ public class APITest {
 
 	public static void main(String[] args) {
 		APIRequest test = new APIRequest();
+		
 		/*
 		System.out.println("根据ID查询目标对象 params <ids>");
 		String strGetObjects = test.GXBAPIRequest("getobjects", "1.25.100,1.2.200");
@@ -354,10 +355,64 @@ public class APITest {
 		System.out.println(strGetDataTransactionTotalCount);
 		*/
 		
-		
+		/*
 		System.out.println("获取当前商户个数");
 		String strGetMerchantsTotalCount = test.GXBAPIRequest("getmerchantstotalcount", "");
 		System.out.println(strGetMerchantsTotalCount);
+		*/
 		
+		/*
+		System.out.println("获取指定时间内数据交易的佣金 params <start> <end>");
+		String strGetDataTransactionCommission = test.GXBAPIRequest("getdatatransactioncommission", "<start>,<end>");
+		System.out.println(strGetDataTransactionCommission);
+		*/
+		
+		/*
+		System.out.println("获取指定时间内数据交易的手续费 params <start> <end>");
+		String strGetDataTransactionPayFee = test.GXBAPIRequest("getdatatransactionpayfee", "<start>,<end>");
+		System.out.println(strGetDataTransactionPayFee);
+		*/
+		
+		/*
+		System.out.println("获取请求账户（即商户）在指定时间内数据交易产生的产品费用 params <requester> <start> <end>");
+		String strGetDataTransactionProductCostsByRequester = test.GXBAPIRequest("getdatatransactionproductcostsbyrequester", "<requester>,<start>,<end>");
+		System.out.println(strGetDataTransactionProductCostsByRequester);
+		*/
+		
+		/*
+		System.out.println("获取请求账户（即商户）在指定时间内发起数据交易的次数 params <requester> <start> <end>");
+		String strGetDataTransactionTotalCountByRequester = test.GXBAPIRequest("getdatatransactiontotalcountbyrequester", "<requester>,<start>,<end>");
+		System.out.println(strGetDataTransactionTotalCountByRequester);
+		*/
+		
+		/*
+		System.out.println("获取请求账户（即商户）在指定时间内发起数据交易的手续费 params <requester> <start> <end>");
+		String strGetDataTransactionPayFeesByRequester = test.GXBAPIRequest("getdatatransactionpayfeesbyrequester", "<requester>,<start>,<end>");
+		System.out.println(strGetDataTransactionPayFeesByRequester);
+		*/
+		
+		/*
+		System.out.println("获取在指定时间内购买指定产品的产品费用 params <product_id> <start> <end>");
+		String strGetDataTransactionProductCostsByProductId = test.GXBAPIRequest("getdatatransactionproductcostsbyproductid", "<product_id>,<start>,<end>");
+		System.out.println(strGetDataTransactionProductCostsByProductId);
+		*/
+		
+		/*
+		System.out.println("获取在指定时间内购买指定产品的次数 params <product_id> <start> <end>");
+		String strGetDataTransactionTotalCountByProductId = test.GXBAPIRequest("getdatatransactiontotalcountbyproductid", "<product_id>,<start>,<end>");
+		System.out.println(strGetDataTransactionTotalCountByProductId);
+		*/
+		
+		/*
+		System.out.println("查询帐户的交易历史，其中start/stop为operation_history_id， id为1.11.x  params <account_id> <start> <limit> <stop>");
+		String strGetAccountHistory = test.GXBAPIRequest("getaccounthistory", "<account_id>,<start>,<limit>,<stop>");
+		System.out.println(strGetAccountHistory);
+		*/
+		
+		/*
+		System.out.println("查询帐户的交易历史，根据operations_ids筛选指定类型的交易历史，其中start为序号，从1开始 params <account_id> <operation_ids> <start> <limit>");
+		String strGetAccountHistoryByOperations = test.GXBAPIRequest("getaccounthistorybyoperations", "<account_id>,<operation_ids>,<start>,<limit>");
+		System.out.println(strGetAccountHistoryByOperations);
+		*/
 	}
 }
