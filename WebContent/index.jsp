@@ -1,3 +1,7 @@
+<%@page import="java.sql.Statement"%>
+<%@page import="com.gxb.dao.DBConnection"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page import="java.util.Date"%>
 <%@page import="com.gxb.web.APIRequest"%>
 <%@page import="org.json.JSONObject"%>
@@ -32,6 +36,11 @@
 			curr_block_id = blockResultJSON.getString("block_id");
 		}
 	}
+	
+	/* 投注纪录展示 */
+	ResultSet rs = null;
+	Connection conn = new DBConnection().getConnection();
+	Statement stat;
 %>
 <!DOCTYPE html>
 <html>

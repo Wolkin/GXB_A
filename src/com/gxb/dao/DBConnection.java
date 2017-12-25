@@ -8,8 +8,8 @@ import java.sql.Statement;
 public class DBConnection {
 
 	private final String driver = "com.hxtt.sql.access.AccessDriver";
-//    private final String url = "jdbc:Access:///E:/Workspace/GXB_A/src/accessdb/gxbdb.accdb";
-	private final String url = "jdbc:Access:///.../accessdb/gxbdb.accdb";
+	private String classPath = DBConnection.class.getClassLoader().getResource("").getPath();
+	private final String url = "jdbc:Access:///" + classPath + "/accessdb/gxbdb.accdb";
 	private final String user = "";
     private final String password = "";
     private Connection conn = null;
@@ -31,7 +31,7 @@ public class DBConnection {
 		return conn;
 	}
 
-	private Statement  createStatement() throws SQLException {
+	private Statement createStatement() throws SQLException {
 		return conn.createStatement();
 	}
 
