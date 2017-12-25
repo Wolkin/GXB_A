@@ -1,16 +1,14 @@
-package com.gxb.api.wallet;
+package com.gxb.api.register.global;
 
 /**
- * 获取资产账户信息
+ * 获取指定时间内数据交易的产品费用
  * @author Wolkin
  *
  */
-public class GetAccountBalances extends WalletAPI {
+public class GetDataTransactionProductCosts  extends GlobalAPI{
 
 	@Override
 	public void doParameter(String paraStr) {
-		// TODO Auto-generated method stub
-		//多参数以逗号分隔的识别
 		String temStr = "";
 		if(paraStr.contains(",")) {
 			temStr = paraStr.replace(",", "\",\"");
@@ -21,7 +19,7 @@ public class GetAccountBalances extends WalletAPI {
 		this.jsonStr = "{" + 
 				           "\"jsonrpc\": \"2.0\", " + 
 				           "\"method\": \"call\", " + 
-				           "\"params\": [0, \"get_account_balances\", [\"" + temStr + "\"]], " + 
+				           "\"params\": [0, \"get_data_transaction_product_costs\", [[\"" + temStr + "\"]]], " + 
 				           "\"id\":1" + 
 				       "}";
 	}

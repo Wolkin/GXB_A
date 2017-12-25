@@ -1,16 +1,14 @@
 package com.gxb.api.wallet;
 
 /**
- * 获取资产账户信息
+ * 返回地址address上所有未领取的余额对象
  * @author Wolkin
  *
  */
-public class GetAccountBalances extends WalletAPI {
+public class GetBalanceObjects extends WalletAPI {
 
 	@Override
 	public void doParameter(String paraStr) {
-		// TODO Auto-generated method stub
-		//多参数以逗号分隔的识别
 		String temStr = "";
 		if(paraStr.contains(",")) {
 			temStr = paraStr.replace(",", "\",\"");
@@ -21,7 +19,7 @@ public class GetAccountBalances extends WalletAPI {
 		this.jsonStr = "{" + 
 				           "\"jsonrpc\": \"2.0\", " + 
 				           "\"method\": \"call\", " + 
-				           "\"params\": [0, \"get_account_balances\", [\"" + temStr + "\"]], " + 
+				           "\"params\": [0, \"get_balance_objects\", [\"" + temStr + "\"]], " + 
 				           "\"id\":1" + 
 				       "}";
 	}

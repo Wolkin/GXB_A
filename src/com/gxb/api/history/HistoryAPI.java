@@ -1,4 +1,4 @@
-package com.gxb.api.witness;
+package com.gxb.api.history;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -6,14 +6,16 @@ import org.json.JSONObject;
 import com.gxb.api.APIObj;
 
 /**
- * 定义见证信息接口抽象类
+ * 定义历史数据接口API
  * @author Wolkin
  *
  */
-
-public abstract class WitnessAPI  implements APIObj{
-	protected String jsonStr = "";
+public abstract class HistoryAPI implements APIObj {
+protected String jsonStr = "";
 	
+	/**
+	 * 打包接口反馈信息
+	 */
 	@Override
 	public JSONObject jsonObj() {
 		JSONObject jsonObj = null;
