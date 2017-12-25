@@ -25,7 +25,9 @@
 		}
 		/* 最新区块高度大于目标区块高度，查询目标区块信息，获取目标区块哈希值block_id */
 		if (curr_block_number >= targetBlockHeight) {	//可以开奖了
-			JSONObject blockObject = test.GXBAPIJSONRequest("getblock", head_block_number);
+			String temp = String.valueOf(targetBlockHeight); //转换目标区块为字符串
+			
+			JSONObject blockObject = test.GXBAPIJSONRequest("getblock", temp);
 			JSONObject blockResultJSON = blockObject.getJSONObject("result");
 			curr_block_id = blockResultJSON.getString("block_id");
 		}
