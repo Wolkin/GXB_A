@@ -1,3 +1,4 @@
+<%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="com.gxb.dao.DBConnection"%>
 <%@page import="java.sql.Connection"%>
@@ -248,7 +249,8 @@
 	    		<table class="uk-table uk-table-hover uk-table-condensed">
 	                <thead>
 	                    <tr>
-	                        <th>竞猜用户</th>
+	                    	<th>编号</th>
+	                        <th>竞猜账户</th>
 	                        <th>下注数目</th>
 	                        <th>竞猜值</th>
 	                        <th>竞猜日期</th>
@@ -256,48 +258,41 @@
 	                    </tr>
 	                </thead>
 	                <tbody>
-	                    <tr>
-	                        <td>gxs-**m</td>
-	                        <td>5 gxs</td>
-	                        <td>z</td>
-	                        <td>2017/12/21 15:31:00</td>
-	                        <td>生效</td>
+<%
+	try {
+		stat = conn.createStatement();
+		String sql = " select no,wallet,gxsNum,guessValue,guessDate,guessTerm,guessStatus" +
+				" from guessrecord" +
+				" where guessTerm = '2017001'" +
+				" order by no desc";
+		rs = stat.executeQuery(sql);
+		String guessStatus = "";
+		while (rs.next()) {
+			guessStatus = rs.getString("guessStatus");
+			if ("0".equals(guessStatus)) {
+				guessStatus = "新发生";
+			} else if ("1".equals(guessStatus)) {
+				guessStatus = "生效";
+			} else {
+				guessStatus = "失效";
+			}
+%>
+						<tr>
+							<td><%=rs.getString("no") %></td>
+	                        <td><%=rs.getString("wallet") %></td>
+	                        <td><%=rs.getString("gxsNum") %> gxs</td>
+	                        <td><%=rs.getString("guessValue") %></td>
+	                        <td><%=rs.getString("guessDate") %></td>
+	                        <td><%=rs.getString("guessStatus") %></td>
 	                    </tr>
-	                    <tr>
-	                        <td>gxs-**mm</td>
-	                        <td>5 gxs</td>
-	                        <td>a</td>
-	                        <td>2017/12/21 15:31:00</td>
-	                        <td>生效</td>
-	                    </tr>
-	                    <tr>
-	                        <td>gxs-**m2</td>
-	                        <td>3 gxs</td>
-	                        <td>z</td>
-	                        <td>2017/12/21 15:31:00</td>
-	                        <td>失效</td>
-	                    </tr>
-	                    <tr>
-	                        <td>mal**mll</td>
-	                        <td>3 gxs</td>
-	                        <td>7</td>
-	                        <td>2017/12/20 15:31:00</td>
-	                        <td>生效</td>
-	                    </tr>
-	                    <tr>
-	                        <td>mal**mll</td>
-	                        <td>3 gxs</td>
-	                        <td>7</td>
-	                        <td>2017/12/20 15:31:00</td>
-	                        <td>生效</td>
-	                    </tr>
-	                    <tr>
-	                        <td>mal**mll</td>
-	                        <td>3 gxs</td>
-	                        <td>7</td>
-	                        <td>2017/12/20 15:31:00</td>
-	                        <td>失效</td>
-	                    </tr>
+<%
+			System.out.println(rs.getString("wallet"));
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+%>
 	                </tbody>
 	            </table>
 				<p>
