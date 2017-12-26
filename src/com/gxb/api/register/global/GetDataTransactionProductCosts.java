@@ -19,7 +19,7 @@ public class GetDataTransactionProductCosts  extends GlobalAPI{
 		this.jsonStr = "{" + 
 				           "\"jsonrpc\": \"2.0\", " + 
 				           "\"method\": \"call\", " + 
-				           "\"params\": [0, \"get_data_transaction_product_costs\", [[\"" + temStr + "\"]]], " + 
+				           "\"params\": [0, \"get_data_transaction_product_costs\", [\"" + temStr + "\"]], " + 
 				           "\"id\":1" + 
 				       "}";
 	}

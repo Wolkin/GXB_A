@@ -19,7 +19,7 @@ public class GetDataTransactionPayFee extends GlobalAPI {
 		this.jsonStr = "{" + 
 							"\"jsonrpc\": \"2.0\", " + 
 							"\"method\": \"call\", " + 
-							"\"params\": [0, \"get_data_transaction_pay_fee\", [[\"" + temStr + "\"]]], " + 
+							"\"params\": [0, \"get_data_transaction_pay_fee\", [\"" + temStr + "\"]], " + 
 							"\"id\":1" + 
 						"}";
 	}

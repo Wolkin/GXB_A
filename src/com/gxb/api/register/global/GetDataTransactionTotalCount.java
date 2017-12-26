@@ -19,7 +19,7 @@ public class GetDataTransactionTotalCount extends GlobalAPI {
 		this.jsonStr = "{" + 
 				           "\"jsonrpc\": \"2.0\", " + 
 				           "\"method\": \"call\", " + 
-				           "\"params\": [0, \"get_data_transaction_total_count\", [[\"" + temStr + "\"]]], " + 
+				           "\"params\": [0, \"get_data_transaction_total_count\", [\"" + temStr + "\"]], " + 
 				           "\"id\":1" + 
 				       "}";
 	}
