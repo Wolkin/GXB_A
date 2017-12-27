@@ -71,6 +71,7 @@
 		<link rel="stylesheet" href="css/components/tooltip.almost-flat.css">
 		<link rel="stylesheet" href="css/components/upload.almost-flat.css">
         
+        <script src="js/jquery-1.12.2.js"></script>
         <script src="js/uikit.min.js"></script>
         <script src="js/core/alert.js"></script>
 		<script src="js/core/core.js"></script>
@@ -93,11 +94,12 @@
 		 -->
 
 <script language="javascript">
+
 	function guessClick()
 	{
-		var guessWallet = document.guessForm.guessWallet.value;
-		var guessValue = document.guessForm.guessValue.value;
-		var gxsNum = document.guessForm.gxsNum.value;
+		var guessWallet = document.getElementById("guessForm").guessWallet.value;
+		var guessValue = document.getElementById("guessForm").guessValue.value;
+		var gxsNum = document.getElementById("guessForm").gxsNum.value;
 		if (typeof(guessWallet) == "undefined" || guessWallet == null || guessWallet == "") {
 			alert("请输入参与竞猜的钱包账户");
 			return;
@@ -108,7 +110,25 @@
 		}
 		var url = "https://wallet.gxb.io/#/transfer/?from="+trim(guessWallet)+"&to=gxb-wm&amount="+gxsNum+"&memo="+gxsNum;
 		if (confirm("您的竞猜信息： \n 竞猜钱包账户["+trim(guessWallet)+"]、竞猜数值["+guessValue+"]、投注金额["+gxsNum+" gxs]\n 确认投注将跳转到转账页面")) {
-			window.open(url);
+			//document.getElementById("guessForm").method="POST";
+			//document.getElementById("guessForm").action="/GXB_A/GuessRecordInsert";
+			//document.getElementById("guessForm").submit();
+			$("form#guessForm").on('submit',function(e){
+			    e.preventDefault();
+			    $.ajax({
+			        type:"post",
+			        url:"/GXB_A/GuessRecordInsert",
+			        data:{
+			        	guessWallet:trim(guessWallet),
+			        	guessValue:trim(guessValue),
+			        	gxsNum:trim(gxsNum)
+			        },
+			        success:function (data) {
+			            window.open(url);
+			            location.reload();
+			        }
+			    });
+			})
 		}
 	}
 
@@ -150,7 +170,6 @@
                                         <li><a href="http://www.getuikit.net/tests/core/navbar.html#">Separated item</a></li>
                                     </ul>
                                 </div>
-
                             </li>
                             <li><a href="http://www.getuikit.net/tests/core/navbar.html">Item</a></li>
                             <li class="uk-active"><a href="http://www.getuikit.net/tests/core/navbar.html">Active</a></li>
@@ -178,7 +197,7 @@
                 <p>
 	    		<h4>本期竞猜公信宝区块高度<font color="red"><%=targetBlockHeight %></font>区块哈希码从右起第<font color="red">8</font>位值<font color="blue">（0-9,a-z）。</font></h4>
 				<p>
-				<h4>投注<font color="red">（1-5）</font>GXS，赔率<font color="red">5</font>倍，下注后将GXS转入庄家钱包为有效押注，公布结果后压中的庄家会自动按照赔付倍率转入您钱包，信誉至上。</h4>
+				<h4>投注<font color="red">（1-5）</font>GXS，赔率<font color="red">8</font>倍，下注后将GXS转入庄家钱包为有效押注，公布结果后压中的庄家会自动按照赔付倍率转入您钱包，信誉至上。</h4>
 				<p>
 				<h4>庄家钱包地址：<font color="red"><strong>gxb-wm</strong></font></h4>
             </div>
@@ -190,7 +209,7 @@
                 <div class="uk-panel-badge uk-badge uk-badge-danger ">Hot</div>
                 <h3 class="uk-panel-title"><strong>竞猜区</strong></h3>
                 <div class="uk-text-center">
-                <form name="guessForm" class="uk-form uk-margin uk-container-center">
+                <form id="guessForm" class="uk-form uk-margin uk-container-center">
                 	<input name="guessWallet" placeholder="竞猜账户" class="uk-margin-small-top">
 	    			<input name="guessValue" maxlength="1" onkeyup="this.value=this.value.replace(/[^0-9a-zA-Z]/g,'')" placeholder="竞猜值" class="uk-margin-small-top" style="width:70px;">
                     <select name="gxsNum" class="uk-margin-small-top">
@@ -200,7 +219,7 @@
                         <option value="4">4 GXS</option>
                         <option value="5">5 GXS</option>
                     </select>
-                    <button  class="uk-button uk-button-primary uk-margin-small-top" onclick="guessClick()">投注转账</button>
+                    <button class="uk-button uk-button-primary uk-margin-small-top" onclick="guessClick()">投注转账</button>
                     <!-- 
                		<a class="uk-button uk-button-danger" href="https://wallet.gxb.io/#/transfer/?to=gxb-wm">投注转账</a>
 					 -->
@@ -249,7 +268,6 @@
 	    		<table class="uk-table uk-table-hover uk-table-condensed">
 	                <thead>
 	                    <tr>
-	                    	<th>编号</th>
 	                        <th>竞猜账户</th>
 	                        <th>下注数目</th>
 	                        <th>竞猜值</th>
@@ -261,10 +279,10 @@
 <%
 	try {
 		stat = conn.createStatement();
-		String sql = " select no,wallet,gxsNum,guessValue,guessDate,guessTerm,guessStatus" +
+		String sql = " select wallet,gxsNum,guessValue,guessDate,guessTerm,guessStatus" +
 				" from guessrecord" +
 				" where guessTerm = '2017001'" +
-				" order by no desc";
+				" order by guessDate desc";
 		rs = stat.executeQuery(sql);
 		String guessStatus = "";
 		while (rs.next()) {
@@ -278,12 +296,11 @@
 			}
 %>
 						<tr>
-							<td><%=rs.getString("no") %></td>
 	                        <td><%=rs.getString("wallet") %></td>
 	                        <td><%=rs.getString("gxsNum") %> gxs</td>
 	                        <td><%=rs.getString("guessValue") %></td>
 	                        <td><%=rs.getString("guessDate") %></td>
-	                        <td><%=rs.getString("guessStatus") %></td>
+	                        <td><%=guessStatus %></td>
 	                    </tr>
 <%
 			System.out.println(rs.getString("wallet"));

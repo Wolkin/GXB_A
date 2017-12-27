@@ -9,4 +9,13 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+
+  <servlet>
+  	<servlet-name>GuessRecordInsert</servlet-name>
+  	<servlet-class>com.gxb.servlet.GuessRecordInsert</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>GuessRecordInsert</servlet-name>
+  	<url-pattern>/GuessRecordInsert</url-pattern>
+  </servlet-mapping>
 </web-app>
