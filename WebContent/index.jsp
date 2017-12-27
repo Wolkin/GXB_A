@@ -47,6 +47,8 @@
 <html>
     <head>
         <title>公信宝-未来区块竞猜小游戏</title>
+        <link rel="icon" href="images/logo-gxs.ico" type="image/x-icon"/>  
+        <meta name="renderer" content="webkit|ie-comp|ie-stand">
         <link rel="stylesheet" href="css/page.css" />
         <link rel="stylesheet" href="css/uikit.almost-flat.css">
 		<link rel="stylesheet" href="css/components/accordion.almost-flat.css">
@@ -155,6 +157,7 @@
             <div class="uk-margin">
                 <nav class="uk-navbar">
                     <div class="uk-navbar-flip">
+                    	<!-- 
                         <ul class="uk-navbar-nav uk-hidden-small">
                             <li class="uk-parent" data-uk-dropdown="" aria-haspopup="true" aria-expanded="false">
                                 <a href="http://www.getuikit.net/tests/core/navbar.html">Parent</a>
@@ -174,6 +177,7 @@
                             <li><a href="http://www.getuikit.net/tests/core/navbar.html">Item</a></li>
                             <li class="uk-active"><a href="http://www.getuikit.net/tests/core/navbar.html">Active</a></li>
                         </ul>
+                        -->
                     </div>
                     <div class="uk-navbar-content">
                     	<img alt="28x28" src="images/logo-gxs-blue32x32.png"></img>
@@ -210,8 +214,10 @@
                 <h3 class="uk-panel-title"><strong>竞猜区</strong></h3>
                 <div class="uk-text-center">
                 <form id="guessForm" class="uk-form uk-margin uk-container-center">
-                	<input name="guessWallet" placeholder="竞猜账户" class="uk-margin-small-top">
-	    			<input name="guessValue" maxlength="1" onkeyup="this.value=this.value.replace(/[^0-9a-zA-Z]/g,'')" placeholder="竞猜值" class="uk-margin-small-top" style="width:70px;">
+                	<label for="guessWallet">竞猜账户：</label>
+                	<input id="guessWallet" name="guessWallet" placeholder="竞猜账户" class="uk-margin-small-top">
+	    			<label for="guessValue">竞猜值：</label>
+	    			<input id="guessValue" name="guessValue" maxlength="1" onkeyup="this.value=this.value.replace(/[^0-9a-zA-Z]/g,'')" placeholder="竞猜值" class="uk-margin-small-top" style="width:70px;">
                     <select name="gxsNum" class="uk-margin-small-top">
                         <option value="1">1 GXS</option>
                         <option value="2">2 GXS</option>
