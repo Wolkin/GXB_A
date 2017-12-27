@@ -109,7 +109,7 @@
 			return;
 		}
 		var url = "https://wallet.gxb.io/#/transfer/?from="+trim(guessWallet)+"&to=gxb-wm&amount="+gxsNum+"&memo="+gxsNum;
-		if (confirm("您的竞猜信息： \n 竞猜钱包账户["+trim(guessWallet)+"]、竞猜数值["+guessValue+"]、投注金额["+gxsNum+" gxs]\n 确认投注将跳转到转账页面")) {
+		if (confirm("您的竞猜信息： \n 竞猜钱包账户【"+trim(guessWallet)+"】、竞猜数值【"+guessValue+"】、投注金额【"+gxsNum+" gxs】\n 确认投注将跳转到转账页面")) {
 			//document.getElementById("guessForm").method="POST";
 			//document.getElementById("guessForm").action="/GXB_A/GuessRecordInsert";
 			//document.getElementById("guessForm").submit();
