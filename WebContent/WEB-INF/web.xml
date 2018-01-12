@@ -14,8 +14,16 @@
   	<servlet-name>GuessRecordInsert</servlet-name>
   	<servlet-class>com.gxb.servlet.GuessRecordInsert</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>GxbApp</servlet-name>
+  	<servlet-class>com.gxb.servlet.GxbApp</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>GuessRecordInsert</servlet-name>
   	<url-pattern>/GuessRecordInsert</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GxbApp</servlet-name>
+  	<url-pattern>/</url-pattern>
   </servlet-mapping>
 </web-app>

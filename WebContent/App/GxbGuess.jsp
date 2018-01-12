@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ include file="/IncludeHead.jsp" %>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="com.gxb.dao.DBConnection"%>
@@ -6,13 +8,10 @@
 <%@page import="java.util.Date"%>
 <%@page import="com.gxb.web.APIRequest"%>
 <%@page import="org.json.JSONObject"%>
-<%@ page contentType="text/html; charset=UTF-8" %>
 <%
-	String contentPath = request.getContextPath();
 	final int targetBlockHeight = 8888888;	//目标区块高度
 	String webPath = getServletContext().getRealPath("/WEB-INF/");	//WEB路径
 	APIRequest test = new APIRequest(webPath);
-	System.out.println(webPath);
 	/* 获取全局区块信息，提取最新区块高度  */
 	JSONObject headObject = test.GXBAPIJSONRequest("getdynamicglobalproperties", "");
 	JSONObject headResultJSON = headObject.getJSONObject("result");
@@ -48,54 +47,6 @@
 <html>
     <head>
         <title>公信宝-未来区块竞猜小游戏</title>
-        <link rel="icon" href="<%=contentPath%>/images/logo-gxs.ico" type="image/x-icon"/>  
-        <meta name="renderer" content="webkit|ie-comp|ie-stand">
-        <link rel="stylesheet" href="<%=contentPath%>/css/page.css" />
-        <link rel="stylesheet" href="<%=contentPath%>/css/uikit.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/accordion.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/autocomplete.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/datepicker.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/dotnav.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/form-advanced.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/form-file.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/form-password.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/form-select.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/htmleditor.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/nestable.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/notify.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/placeholder.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/progress.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/search.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/slidenav.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/slider.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/slideshow.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/sortable.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/sticky.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/tooltip.almost-flat.css">
-		<link rel="stylesheet" href="<%=contentPath%>/css/components/upload.almost-flat.css">
-        
-        <script src="<%=contentPath%>/js/jquery-1.12.2.js"></script>
-        <script src="<%=contentPath%>/js/uikit.min.js"></script>
-        <script src="<%=contentPath%>/js/core/alert.js"></script>
-		<script src="<%=contentPath%>/js/core/core.js"></script>
-		<script src="<%=contentPath%>/js/core/button.js"></script>
-		<!-- 
-		<script src="jquery.js"></script>
-		<script src="js/core/touch.js"></script>
-		<script src="js/core/utility.js"></script>
-		<script src="js/core/smooth-scroll.js"></script>
-		<script src="js/core/scrollspy.js"></script>
-		<script src="js/core/toggle.js"></script>
-		<script src="js/core/dropdown.js"></script>
-		<script src="js/core/grid.js"></script>
-		<script src="js/core/modal.js"></script>
-		<script src="js/core/nav.js"></script>
-		<script src="js/core/offcanvas.js"></script>
-		<script src="js/core/switcher.js"></script>
-		<script src="js/core/tab.js"></script>
-		<script src="js/core/cover.js"></script>
-		 -->
-
 <script language="javascript">
 
 	function guessClick()
