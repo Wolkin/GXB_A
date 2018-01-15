@@ -10,8 +10,7 @@
 <%@page import="org.json.JSONObject"%>
 <%
 	final int targetBlockHeight = 8888888;	//目标区块高度
-	String webPath = getServletContext().getRealPath("/WEB-INF/");	//WEB路径
-	APIRequest test = new APIRequest(webPath);
+	APIRequest test = new APIRequest();
 	/* 获取全局区块信息，提取最新区块高度  */
 	JSONObject headObject = test.GXBAPIJSONRequest("getdynamicglobalproperties", "");
 	JSONObject headResultJSON = headObject.getJSONObject("result");
