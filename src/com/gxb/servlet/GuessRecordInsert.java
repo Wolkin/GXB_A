@@ -60,7 +60,7 @@ public class GuessRecordInsert extends HttpServlet {
 				+ ",'" + guessStatus + "')";
 		System.out.println(sql);
 		Connection conn = new DBConnection().getConnection();
-		Statement stat;
+		Statement stat = null;
 		try {
 			stat = conn.createStatement();
 			stat.execute(sql);
