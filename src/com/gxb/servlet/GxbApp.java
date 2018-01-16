@@ -26,12 +26,12 @@ public class GxbApp extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String app = request.getParameter("app");
-		System.out.println(app);
 		if ("gxbguess".equals(app)) {
 			request.getRequestDispatcher("/App/GxbGuess.jsp").forward(request, response);
-		} else {
-			request.getRequestDispatcher("/index.jsp").forward(request, response);
-		}
+		} 
+//		else {
+//			request.getRequestDispatcher("/App/GxbGuess.jsp").forward(request, response);
+//		}
 	}
 
 	/**

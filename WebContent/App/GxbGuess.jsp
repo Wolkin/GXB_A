@@ -260,7 +260,6 @@
 	                        <td><%=guessStatus %></td>
 	                    </tr>
 <%
-			System.out.println(rs.getString("wallet"));
 		}
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
