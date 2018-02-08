@@ -152,7 +152,7 @@
                 <p>
 	    		<h4>本期竞猜公信宝区块高度<font color="red"><%=targetBlockHeight %></font>区块哈希码从右起第<font color="red">8</font>位值<font color="blue">（0-9,a-f）。</font></h4>
 				<p>
-				<h4>投注<font color="red">（1-5）</font>GXS，赔率<font color="red">8</font>倍，下注后将GXS转入庄家钱包为有效押注，公布结果后压中的庄家会自动按照赔付倍率转入您钱包，信誉至上。</h4>
+				<h4>投注<font color="red">（1-5）</font>GXS，赔率<font color="red">8</font>倍，下注后将GXS转入庄家钱包为有效押注，公布结果后压中的系统会自动按照合约赔付倍率转入您钱包，信誉至上。</h4>
 				<p>
 				<h4>庄家钱包地址：<font color="red"><strong>gxb-wm</strong></font></h4>
             </div>
