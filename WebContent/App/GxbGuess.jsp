@@ -239,7 +239,7 @@
 		String sql = " select wallet,gxsNum,guessValue,guessDate,guessTerm,guessStatus" +
 				" from guessrecord" +
 				" where guessTerm = '2017001'" +
-				" order by guessDate desc";
+				" order by guessStatus, guessDate desc";
 		rs = stat.executeQuery(sql);
 		String guessStatus = "";
 		while (rs.next()) {
