@@ -168,7 +168,7 @@
                 	<label for="guessWallet">竞猜账户：</label>
                 	<input id="guessWallet" name="guessWallet" placeholder="竞猜账户" class="uk-margin-small-top">
 	    			<label for="guessValue">竞猜值：</label>
-	    			<input id="guessValue" name="guessValue" maxlength="1" onkeyup="this.value=this.value.replace(/[^0-9a-zA-Z]/g,'')" placeholder="竞猜值" class="uk-margin-small-top" style="width:70px;">
+	    			<input id="guessValue" name="guessValue" maxlength="1" onkeyup="this.value=this.value.replace(/[^0-9a-f]/g,'')" placeholder="竞猜值" class="uk-margin-small-top" style="width:70px;">
                     <select name="gxsNum" class="uk-margin-small-top">
                         <option value="1">1 GXS</option>
                         <option value="2">2 GXS</option>
