@@ -67,6 +67,22 @@ public class GuessRecordInsert extends HttpServlet {
 			stat.close();
 			conn.close();
 		} catch (SQLException e) {
+			if (stat != null) {
+				try {
+					stat.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
