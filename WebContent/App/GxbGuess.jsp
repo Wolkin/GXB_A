@@ -249,7 +249,7 @@
 			} else if ("1".equals(guessStatus)) {
 				guessStatus = "生效";
 			} else {
-				guessStatus = "失效";
+				guessStatus = "无效";
 			}
 %>
 						<tr>
